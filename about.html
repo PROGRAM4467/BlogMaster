@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | Mr Erwan Sddirects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Georgia,serif;}
+body{background:#ecebea;animation:fadeIn .6s ease;overflow-x:hidden;}
+.fade-out{animation:fadeOut .5s ease forwards;}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeOut{
+  from{opacity:1}
+  to{opacity:0;transform:translateY(-15px)}
+}
+
+/* NAVBAR */
+header{
+  padding:20px 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{display:flex;gap:12px;align-items:center;}
+.brand-circle{width:40px;height:40px;background:#7a0000;border-radius:50%;}
+nav ul{list-style:none;display:flex;gap:26px;align-items:center;}
+nav a{text-decoration:none;color:#111;font-size:14px;}
+nav a.active{color:#7a0000;font-weight:bold;}
+.btn-nav{background:#7a0000;color:#fff;padding:9px 20px;border-radius:20px;font-size:13px}
+
+/* ABOUT */
+.about{
+  min-height:70vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+}
+.about-content{max-width:800px;color:#7a0000;}
+.about-content h1{font-size:48px;margin-bottom:20px;}
+.about-content p{font-size:14px;line-height:1.8}
+
+/* DECOR */
+.circle-left{
+  position:absolute;left:-100px;bottom:-100px;
+  width:260px;height:260px;border-radius:50%;
+  background:#3d5a24;
+}
+.circle-right{
+  position:absolute;right:-100px;top:80px;
+  width:260px;height:260px;border-radius:50%;
+  background:#1f3a63;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-circle"></div>
+    <div>
+      <strong>Mr Erwan Sddirects</strong><br>
+      <small>An a Creator</small>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="#">Creation</a></li>
+      <li><a href="#" class="btn-nav">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="about">
+  <div class="about-content">
+    <h1>About us</h1>
+    <p>
+      Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi<br>
+      Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi<br>
+      Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi<br>
+      Deskripsi Deskripsi
+    </p>
+  </div>
+
+  <div class="circle-left"></div>
+  <div class="circle-right"></div>
+</section>
+
+<script>
+document.querySelectorAll("a[href$='.html']").forEach(link=>{
+  link.addEventListener("click",e=>{
+    e.preventDefault();
+    const target=link.getAttribute("href");
+    document.body.classList.add("fade-out");
+    setTimeout(()=>location.href=target,500);
+  });
+});
+</script>
+
+</body>
+</html>
