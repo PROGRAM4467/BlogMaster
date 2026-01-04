@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Mr Erwan Sddirects</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Georgia", serif;
+    }
+
+    body {
+      background: #ecebea;
+      animation: fadeIn 0.6s ease;
+      overflow-x: hidden;
+    }
+
+    /* ===== TRANSITION ===== */
+    .fade-out {
+      animation: fadeOut 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-15px); }
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      padding: 20px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-circle {
+      width: 40px;
+      height: 40px;
+      background: #7a0000;
+      border-radius: 50%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+    }
+
+    nav a.active {
+      color: #7a0000;
+      font-weight: bold;
+    }
+
+    .btn-nav {
+      background: #7a0000;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-section {
+      padding: 40px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-section h2 {
+      font-size: 40px;
+      color: #7a0000;
+      margin-bottom: 30px;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .arrow {
+      font-size: 40px;
+      cursor: pointer;
+      color: #7a0000;
+      user-select: none;
+    }
+
+    .slider {
+      width: 780px;
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.5s ease;
+    }
+
+    .item {
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .blue { background: #0d9bf0; }
+    .yellow { background: #ffb703; position: relative; }
+    .green { background: #78c679; }
+    .red { background: #7a0000; color: #fff; }
+
+    /* Play icon */
+    .play {
+      width: 0;
+      height: 0;
+      border-left: 40px solid rgba(255,255,255,0.7);
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+    }
+
+    .video-text {
+      position: absolute;
+      bottom: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <div class="brand">
+    <div class="brand-circle"></div>
+    <div>
+      <strong>Mr Erwan Sddirects</strong><br>
+      <small>An a Creator</small>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="#">Creation</a></li>
+      <li><a href="#" class="btn-nav">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <h2>Gallery</h2>
+
+  <div class="slider-wrapper">
+    <div class="arrow" id="prev">&#10094;</div>
+
+    <div class="slider">
+      <div class="slider-track" id="track">
+        <div class="item blue"></div>
+        <div class="item yellow">
+          <div class="play"></div>
+          <div class="video-text">Video</div>
+        </div>
+        <div class="item green"></div>
+        <div class="item red"></div>
+        <div class="item blue"></div>
+        <div class="item green"></div>
+      </div>
+    </div>
+
+    <div class="arrow" id="next">&#10095;</div>
+  </div>
+</section>
+
+<!-- TRANSITION SCRIPT -->
+<script>
+  // page transition
+  document.querySelectorAll("a[href$='.html']").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = link.getAttribute("href");
+      document.body.classList.add("fade-out");
+      setTimeout(() => window.location.href = target, 500);
+    });
+  });
+
+  // slider logic
+  const track = document.getElementById("track");
+  let position = 0;
+
+  document.getElementById("next").onclick = () => {
+    position -= 250;
+    track.style.transform = `translateX(${position}px)`;
+  };
+
+  document.getElementById("prev").onclick = () => {
+    position += 250;
+    track.style.transform = `translateX(${position}px)`;
+  };
+</script>
+
+</body>
+</html>
