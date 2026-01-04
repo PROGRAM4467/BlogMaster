@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mr Erwan Sddirects</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Georgia, serif;
+    }
+
+    body{
+      background:#f3f1ef;
+      overflow-x:hidden;
+      animation: fadeIn 0.6s ease;
+    }
+
+    /* ================= HEADER ================= */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 60px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo-circle{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:#7a0000;
+    }
+
+    nav a{
+      margin:0 15px;
+      text-decoration:none;
+      color:#000;
+      font-size:15px;
+    }
+
+    nav a.active{
+      color:#7a0000;
+      font-weight:bold;
+    }
+
+    .contact-btn{
+      background:#7a0000;
+      color:#fff;
+      padding:8px 18px;
+      border-radius:20px;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    /* ================= HERO ================= */
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      padding:80px 60px;
+      position:relative;
+    }
+
+    .hero-left{
+      max-width:500px;
+    }
+
+    .hero-left h1{
+      font-size:48px;
+      margin-bottom:20px;
+    }
+
+    .hero-left p{
+      font-size:15px;
+      line-height:1.7;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons a{
+      display:inline-block;
+      margin-right:15px;
+      padding:10px 22px;
+      border-radius:25px;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .btn-primary{
+      background:#7a0000;
+      color:#fff;
+    }
+
+    .btn-outline{
+      border:1px solid #7a0000;
+      color:#7a0000;
+    }
+
+    .hero-right{
+      width:380px;
+      height:380px;
+      border-radius:50%;
+      background:#5a5a5a;
+    }
+
+    /* ================= DECOR CIRCLES ================= */
+    .circle-bottom-left{
+      position:absolute;
+      left:-140px;
+      bottom:-140px;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      background:#3d5a24;
+      z-index:-1;
+    }
+
+    .circle-bottom-mid{
+      position:absolute;
+      left:200px;
+      bottom:-160px;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:#7a5a00;
+      z-index:-1;
+    }
+
+    .circle-bottom-right{
+      position:absolute;
+      right:200px;
+      bottom:-180px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:#1f3a63;
+      z-index:-1;
+    }
+
+    /* ================= ANIMATION ================= */
+    .fade-out{
+      animation: fadeOut 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeOut{
+      from{
+        opacity:1;
+        transform:translateY(0);
+      }
+      to{
+        opacity:0;
+        transform:translateY(-15px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <div>
+        <strong>Mr Erwan Sddirects</strong><br>
+        <small>An a Creator</small>
+      </div>
+    </div>
+
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#">Creation</a>
+      <a href="#" class="contact-btn">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Slogan 1 . . . .</h1>
+      <p>
+        Deskripsi Deskripsi Deskripsi Deskripsi<br>
+        Deskripsi Deskripsi Deskripsi Deskripsi<br>
+        Deskripsi Deskripsi Deskripsi.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="about.html" class="btn-primary">Learn More</a>
+        <a href="#" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="hero-right"></div>
+  </section>
+
+  <!-- ================= DECOR ================= -->
+  <div class="circle-bottom-left"></div>
+  <div class="circle-bottom-mid"></div>
+  <div class="circle-bottom-right"></div>
+
+  <!-- ================= PAGE TRANSITION ================= -->
+  <script>
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href && href.endsWith(".html")) {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          document.body.classList.add("fade-out");
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
