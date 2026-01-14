@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Creation</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Georgia, serif;
+}
+
+body{
+  background:#f3f1ef;
+  overflow-x:hidden;
+  animation: fadeIn 0.6s ease;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== HEADER / NAVBAR ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 60px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand .logo{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#7b0000;
+}
+
+.brand-text h1{
+  font-size:17px;       /* DIPERKECIL */
+  font-weight:600;
+}
+
+.brand-text p{
+  font-size:12px;
+  color:#555;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#000;
+  font-size:14px;
+}
+
+nav a.active{
+  color:#7b0000;
+}
+
+nav .contact-btn{
+  background:#7b0000;
+  color:#fff;
+  padding:7px 16px;
+  border-radius:18px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main{
+  display:flex;
+  justify-content:center;
+  gap:140px;
+  margin-top:90px;
+}
+
+.card-link{
+  text-decoration:none;
+  color:inherit;
+}
+
+.card{
+  width:280px;
+  height:340px;
+  border-radius:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card img{
+  width:150px;
+  height:auto;
+}
+
+/* SASSTRA */
+.sastra{
+  background:#9faeae;
+}
+
+/* EDUKASI */
+.edukasi{
+  background:#7e7bcf;
+}
+
+.label{
+  text-align:center;
+  margin-top:20px;
+  font-size:20px;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo"></div>
+    <div class="brand-text">
+      <h1>Mr Erwan Sddirects</h1>
+      <p>An a Creator</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="creation.html" class="active">Creation</a>
+    <a href="contact.html" class="contact-btn">Contact</a>
+  </nav>
+</header>
+
+<section class="main">
+
+  <!-- SASSTRA -->
+  <a href="sastra.html" class="card-link">
+    <div class="card sastra">
+      <img src="pen.PNG" alt="Sastra">
+    </div>
+    <div class="label">Sastra</div>
+  </a>
+
+  <!-- EDUKASI -->
+  <a href="edukasi.html" class="card-link">
+    <div class="card edukasi">
+      <img src="booc.PNG" alt="Edukasi">
+    </div>
+    <div class="label">Edukasi</div>
+  </a>
+
+</section>
+
+</body>
+</html>
