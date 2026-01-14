@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sastra | Mr Erwan Sddirects</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Georgia, serif;
+}
+
+body{
+  background:#f3f1ef;
+  overflow-x:hidden;
+  animation:fadeIn .6s ease;
+}
+
+/* ================= HEADER ================= */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 60px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.logo-circle{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#7a0000;
+}
+
+nav a{
+  margin:0 15px;
+  text-decoration:none;
+  color:#000;
+  font-size:15px;
+}
+
+nav a.active{
+  color:#7a0000;
+  font-weight:bold;
+}
+
+.contact-btn{
+  background:#7a0000;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* ================= TITLE ================= */
+.page-title{
+  text-align:center;
+  margin:40px 0;
+}
+
+.page-title h1{
+  font-size:42px;
+  color:#444;
+}
+
+/* ================= MENU ================= */
+.sastra-menu{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:40px;
+}
+
+.sastra-menu button{
+  background:#9aa8a8;
+  border:none;
+  padding:12px 22px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.3s ease;
+}
+
+.sastra-menu button.active,
+.sastra-menu button:hover{
+  background:#7a0000;
+  color:#fff;
+}
+
+/* ================= CONTENT ================= */
+.sastra-content{
+  max-width:900px;
+  margin:0 auto 80px;
+  padding:0 20px;
+}
+
+.content{
+  display:none;
+  animation:fade .4s ease;
+}
+
+.content.active{
+  display:block;
+}
+
+.content h2{
+  margin-bottom:15px;
+  font-size:28px;
+  color:#333;
+}
+
+.content p{
+  line-height:1.7;
+  color:#555;
+}
+
+/* ================= DECOR ================= */
+.decor-circle{
+  position:fixed;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:#7f8c8d;
+  bottom:-130px;
+  right:-130px;
+  z-index:-1;
+}
+
+/* ================= ANIMATION ================= */
+.fade-out{
+  animation:fadeOut .5s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeOut{
+  from{opacity:1;}
+  to{opacity:0; transform:translateY(-15px);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-circle"></div>
+    <div>
+      <strong>Mr Erwan Sddirects</strong><br>
+      <small>An a Creator</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="creation.html" class="active">Creation</a>
+    <a href="contact.html" class="contact-btn">Contact</a>
+  </nav>
+</header>
+
+<section class="page-title">
+  <h1>SASTRA</h1>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="sastra-menu">
+  <button class="active" data-target="novel">Novel</button>
+  <button data-target="novelet">Novelet</button>
+  <button data-target="cerpen">Cerpen</button>
+  <button data-target="cerbung">Cerbung</button>
+  <button data-target="fiksi">Fiksi Mini</button>
+  <button data-target="cernak">Cernak</button>
+  <button data-target="pantun">Pantun</button>
+</section>
+
+<!-- ================= CONTENT ================= -->
+<section class="sastra-content">
+  <div class="content active" id="novel">
+    <h2>Novel</h2>
+    <p>Konten novel akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="novelet">
+    <h2>Novelet</h2>
+    <p>Konten novelet akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="cerpen">
+    <h2>Cerpen</h2>
+    <p>Konten cerpen akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="cerbung">
+    <h2>Cerbung</h2>
+    <p>Konten cerbung akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="fiksi">
+    <h2>Fiksi Mini</h2>
+    <p>Konten fiksi mini akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="cernak">
+    <h2>Cernak</h2>
+    <p>Konten cernak akan ditampilkan di sini.</p>
+  </div>
+
+  <div class="content" id="pantun">
+    <h2>Pantun</h2>
+    <p>Konten pantun akan ditampilkan di sini.</p>
+  </div>
+</section>
+
+<div class="decor-circle"></div>
+
+<!-- ================= JS SWITCH ================= -->
+<script>
+const buttons = document.querySelectorAll(".sastra-menu button");
+const contents = document.querySelectorAll(".content");
+
+buttons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    buttons.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const target = btn.dataset.target;
+    contents.forEach(c=>{
+      c.classList.remove("active");
+      if(c.id === target){
+        c.classList.add("active");
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
